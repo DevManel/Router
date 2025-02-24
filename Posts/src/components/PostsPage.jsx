@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 // Liste des posts
 const posts = [
-  { id: 1, title: "MySQL", description: "blabla", content: "Contenu MySQL..." },
-  { id: 2, title: "PHP", description: "blabla", content: "Contenu PHP..." },
-  { id: 3, title: "React", description: "blabla", content: "Contenu React..." },
+  { id: 1, title: "MySQL", description: "blabla", content: "" },
+  { id: 2, title: "PHP", description: "blabla", content: "" },
+  { id: 3, title: "React", description: "blabla", content: "" },
 ];
 
 function PostsPage() {
@@ -15,7 +15,10 @@ function PostsPage() {
       <ul>
         {posts.map(post => (
           <li key={post.id}>
-            <Link to={`/post/${post.id}`}>{post.title}</Link>
+            {/* Utilisation de NavLink pour la navigation */}
+            <NavLink to={`/post/${post.id}`} activeClassName="active">
+              {post.title}
+            </NavLink>
           </li>
         ))}
       </ul>
